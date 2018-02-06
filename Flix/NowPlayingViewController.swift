@@ -20,8 +20,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.activityIndicator.startAnimating()
-    
     tableView.dataSource = self
     tableView.rowHeight = 155
     
@@ -30,8 +28,6 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     tableView.insertSubview(refreshControl, at: 0)
     
     fetchMovies()
-    
-    self.activityIndicator.stopAnimating()
   }
   
   @objc func didPullToRefresh(_ refreshControl: UIRefreshControl) {
@@ -39,6 +35,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
   }
   
   func fetchMovies() {
+    self.activityIndicator.startAnimating()
     
     let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
     let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -52,6 +49,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
         let movies = dataDictionary["results"] as! [[String: Any]]
         self.movies = movies
         self.tableView.reloadData()
+        self.activityIndicator.stopAnimating()
         self.refreshControl.endRefreshing()
       }
     }

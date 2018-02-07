@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AlamofireImage
 
 enum MovieKeys {
   static let TITLE = "title"

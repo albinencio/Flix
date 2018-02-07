@@ -17,10 +17,17 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
   var movies: [[String: Any]] = []
   var refreshControl: UIRefreshControl!
   
+  override func viewWillAppear(_ animated: Bool) {
+    if let index = tableView.indexPathForSelectedRow {
+      tableView.deselectRow(at: index, animated: true)
+    }
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.dataSource = self
+    tableView.separatorInset = .zero
     tableView.rowHeight = 155
     
     refreshControl = UIRefreshControl()
@@ -76,6 +83,15 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     cell.posterImageView.af_setImage(withURL: posterURL)
     
     return cell
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let cell = sender as! UITableViewCell
+    if let indexPath = tableView.indexPath(for: cell) {
+      let movie = movies[indexPath.row]
+      let detailViewController = segue.destination as! DetailViewController
+      detailViewController.movie = movie
+    }
   }
   
   override func didReceiveMemoryWarning() {

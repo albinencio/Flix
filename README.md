@@ -64,19 +64,19 @@ The biggest challenge was understanding where to make the function calls to acti
 
 **Flix** is a movies app displaying box office and top rental DVDs using [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **X** hours spent in total
+Time spent: **4** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
 - [x] User can tap a cell to see a detail view (+5pts)
-- [ ] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView (+5pts)
+- [x] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView (+5pts)
 
 The following **stretch** features are implemented:
 
-- [ ] User can tap a poster in the collection view to see a detail screen of that movie (+3pts)
-- [ ] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer (+3pts)
+- [x] User can tap a poster in the collection view to see a detail screen of that movie (+3pts)
+- [x] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer (+3pts)
 - [ ] Customize the navigation bar (+1pt)
 - [ ] List in any optionals you didn't finish from last week (+1-3pts)
    - ...
@@ -88,20 +88,20 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. How to modify how the YouTube webpage responds in the app (e.g. playing it on full screen automatically, going back to the previous view once the video ends, etc.)
+2. How to make the titles' font size adjust automatically to make the entire text fit on the screen.
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/albinencio/Flix/blob/master/FlixDemo2.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Understanding the Swift workflow and how it sequences its operations when running its programs. In particular, I was originally implementing my request to get the trailer urls inside DetailViewController, but that wouldn't work as my response would get back once my WebView had already loaded.
 
 ## License
 

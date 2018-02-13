@@ -13,17 +13,25 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
   @IBOutlet weak var collectionView: UICollectionView!
   
   var movies: [[String: Any]] = []
+  var cellsPerLine: CGFloat = 2
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    /*
+     let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+     layout.minimumInteritemSpacing = 0
+     layout.minimumLineSpacing = layout.minimumInteritemSpacing
+     let interItemTotalSpacing = layout.minimumInteritemSpacing * (cellsPerLine - 1)
+     let width = (collectionView.frame.size.width - interItemTotalSpacing) / cellsPerLine
+     layout.itemSize = CGSize(width: width, height: (3.0/2.0) * width)
+     */
     
     collectionView.dataSource = self
     fetchMovies()
   }
   
   func fetchMovies() {
-    //self.activityIndicator.startAnimating()
-    
     let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed")!
     let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
     let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
@@ -36,8 +44,6 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
         let movies = dataDictionary["results"] as! [[String: Any]]
         self.movies = movies
         self.collectionView.reloadData()
-        //self.activityIndicator.stopAnimating()
-        //self.refreshControl.endRefreshing()
       }
     }
     
@@ -57,6 +63,20 @@ class SuperheroViewController: UIViewController, UICollectionViewDataSource {
       cell.posterImageView.af_setImage(withURL: posterURL)
     }
     return cell
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let cell = sender as! UICollectionViewCell
+    if let indexPath = collectionView.indexPath(for: cell) {
+      let movie = movies[indexPath.row]
+      let detailViewController = segue.destination as! DetailViewController
+      detailViewController.movie = movie
+      // Update colors
+      detailViewController.view.backgroundColor = UIColor.black
+      detailViewController.titleLabel.textColor = UIColor.white
+      detailViewController.releaseDateLabel.textColor = UIColor.white
+      detailViewController.overviewLabel.textColor = UIColor.white
+    }
   }
   
   override func didReceiveMemoryWarning() {

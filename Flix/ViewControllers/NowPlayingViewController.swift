@@ -91,6 +91,11 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
       let movie = movies[indexPath.row]
       let detailViewController = segue.destination as! DetailViewController
       detailViewController.movie = movie
+      // Update colors
+      detailViewController.view.backgroundColor = UIColor.white
+      detailViewController.titleLabel.textColor = UIColor.black
+      detailViewController.releaseDateLabel.textColor = UIColor.black
+      detailViewController.overviewLabel.textColor = UIColor.black
     }
   }
   

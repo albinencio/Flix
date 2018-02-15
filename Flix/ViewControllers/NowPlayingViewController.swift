@@ -28,7 +28,8 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource {
     
     tableView.dataSource = self
     tableView.separatorInset = .zero
-    tableView.rowHeight = 155
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 50
     
     refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(NowPlayingViewController.didPullToRefresh(_:)), for: .valueChanged)

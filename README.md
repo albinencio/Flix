@@ -131,22 +131,24 @@ Time spent: **2** hours spent in total
 The following **required** user stories are complete:
 
 - The following screens use AutoLayout to adapt to various orientations and screen sizes
-   - [ ] Movie feed view (+3pt)
-   - [ ] Detail view (+2pt)
+   - [x] Movie Feed View (+3pt)
+   - [x] Detail View (+2pt)
 
 The following **stretch** user stories are implemented:
 
-- [ ] Dynamic Height Cells (+1)
-- [ ] Collection View AutoLayout (+2)
+- [x] Dynamic Height Cells (+1)
+- [x] Collection View AutoLayout (+2)
 
 The following **additional** user stories are implemented:
 
-- [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)
+- [x] Trailer View AutoLayout (+1-3pts)
+- [x] Launch Screen AutoLayout
+- [x] Activity Indicator AutoLayout
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. How to improve AutoLayout in Trailer View to adjust cell size to not have white spacing in between cells when running on different devices.
+2. Fix some issues with AutoLayout on the Detail View: when overview is too long, release date and title are pushed up, and title disappears under backdrop image.
 
 ## Video Walkthrough
 
@@ -158,7 +160,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+The biggest challenge was definitely understanding how to set all the different constraints to obtain the best design. It was hard especially in case of the Detail View and the Superhero (Collection) View. There are still some improvements to be made.
 
 ## License
 

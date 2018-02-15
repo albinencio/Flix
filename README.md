@@ -154,11 +154,13 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
+**Vertical view:**
 <img src='https://github.com/albinencio/Flix/blob/master/Demos/FlixDemo3a.gif' title='Lab 3 - vertical' width='' alt='Video Walkthrough' />
 
+**Horizontal view:**
 <img src='https://github.com/albinencio/Flix/blob/master/Demos/FlixDemo3b.gif' title='Lab 3 - horizontal' width='' alt='Video Walkthrough' />
 
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
+GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 

@@ -8,15 +8,6 @@
 
 import UIKit
 
-enum MovieKeys {
-  static let TITLE = "title"
-  static let RELEASE_DATE = "release_date"
-  static let OVERVIEW = "overview"
-  static let BACKDROP_PATH = "backdrop_path"
-  static let POSTER_PATH = "poster_path"
-  static let ID = "id"
-}
-
 class DetailViewController: UIViewController {
   
   @IBOutlet weak var backdropImageView: UIImageView!
@@ -26,27 +17,17 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var releaseDateLabel: UILabel!
   @IBOutlet weak var overviewLabel: UILabel!
   
-  var movie: [String: Any]?
+  var movie: Movie!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     if let movie = movie {
-      titleLabel.text = movie[MovieKeys.TITLE] as? String
-      releaseDateLabel.text = movie[MovieKeys.RELEASE_DATE] as? String
-      overviewLabel.text = movie[MovieKeys.OVERVIEW] as? String
-      
-      let backdropPathString = movie[MovieKeys.BACKDROP_PATH] as! String
-      let posterPathString = movie[MovieKeys.POSTER_PATH] as! String
-      let baseURLString = "https://image.tmdb.org/t/p/w500"
-      
-      let backdropURL = URL(string: baseURLString + backdropPathString)!
-      backdropImageView.af_setImage(withURL: backdropURL)
-      
-      let posterURL = URL(string: baseURLString + posterPathString)!
-      posterImageView.af_setImage(withURL: posterURL)
-      
-      
+      titleLabel.text = movie.title
+      releaseDateLabel.text = movie.releaseDate
+      overviewLabel.text = movie.overview
+      backdropImageView.af_setImage(withURL: movie.backdropURL!)
+      posterImageView.af_setImage(withURL: movie.posterURL!)
     }
   }
   
